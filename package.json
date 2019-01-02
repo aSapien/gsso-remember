@@ -1,0 +1,12 @@
+{
+  "name": "google-remember-sso",
+  "version": "0.0.1",
+  "description": "Remember Google user per domain",
+  "scripts": {
+    "dev": "webextension-toolbox dev",
+    "build": "webextension-toolbox build"
+  },
+  "devDependencies": {
+    "webextension-toolbox": "latest"
+  }
+}
