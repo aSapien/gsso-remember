@@ -7,6 +7,7 @@
         "target": "es6",
     },
     "include": [
-        "app/scripts/background.ts"
+        "app/scripts/*.ts",
+        "app/types/*.d.ts"
     ]
 }

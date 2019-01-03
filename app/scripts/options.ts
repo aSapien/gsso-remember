@@ -1,1 +1,1 @@
-console.log(`Loading Options`);
+console.log(`Loading Options`)
