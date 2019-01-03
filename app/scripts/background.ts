@@ -1,59 +1,5 @@
 console.log(`Loading background script`)
 
-declare const browser: WebExtensionBrowserApi
-
-interface WebExtensionBrowserApi { 
-  runtime: {
-    sendMessage<M, U>(m: M): Promise<U>
-    onMessage: {
-      addListener(f: (a: MessagePayload) => void): void
-    }
-  }
-  storage: {
-    local: {
-      get<T>(a: string): Promise<T>
-      set<T>(a: T): Promise<{}>
-      remove(a: string): Promise<{}>
-    }
-  }
-}
-
-enum ActionName {
-  SaveAccountAction = 'save-account',
-  DeleteAccountAction = 'delete-account',
-  FindAccountAction = 'find-account',
-  ListAccountAction = 'list-account'
-}
-
-interface EmptyPayload {
-  action: ActionName.ListAccountAction
-}
-
-interface DestinationPayload {
-  action: ActionName.DeleteAccountAction | ActionName.FindAccountAction
-  destination: string
-}
-
-interface DestinationAndEmailPayload {
-  action: ActionName.SaveAccountAction
-  destination: string
-  email: string
-}
-
-type MessagePayload = 
-  EmptyPayload 
-    | DestinationPayload 
-    | DestinationAndEmailPayload
-
-interface StoreValue {
-  email: string
-}
-
-interface StoreEntry  {
-  [key: string]: StoreValue
-}
-
-
 function storageApiExecutor (message: MessagePayload) {
   console.log(`storageApi: received message ${JSON.stringify(message)}`)
 
@@ -117,7 +63,7 @@ function fail(error = new Error('BackgroundScript: Unknown Error')) {
   return response({error}, false)
 }
 
-function response<T extends object>(data: T, success: boolean) { 
+function response<T extends object>(data: T, success: boolean): BackgroundTaskResult { 
   return {...(data as object), success: success} 
 }
 

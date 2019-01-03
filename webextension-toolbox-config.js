@@ -7,7 +7,7 @@ module.exports = {
       config.resolve.extensions.push('.ts')
       config.entry = GlobEntriesPlugin.getEntries(
         [
-          resolve('app', '?(scripts)/*.{js,mjs,jsx,ts,tsx}')
+          resolve('app', '?(scripts)/*.ts'),
         ]
       )
       // Add typescript loader

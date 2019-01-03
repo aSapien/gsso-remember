@@ -1,10 +1,12 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "lib": ["es2017", "es6", "dom"],
         "target": "es6",
-    }
+    },
+    "include": [
+        "app/scripts/background.ts"
+    ]
 }
