@@ -1,12 +1,10 @@
-import { MessagePayload } from "../scripts/common";
-
 declare const browser: WebExtensionBrowserApi
 
 interface WebExtensionBrowserApi { 
   runtime: {
     sendMessage<M, U>(m: M): Promise<U>
     onMessage: {
-      addListener(f: (a: MessagePayload) => void): void
+      addListener<T>(f: (a: T) => void): void
     }
   }
   storage: {
