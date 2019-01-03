@@ -1,3 +1,5 @@
+import { MessagePayload } from "../scripts/common";
+
 declare const browser: WebExtensionBrowserApi
 
 interface WebExtensionBrowserApi { 
