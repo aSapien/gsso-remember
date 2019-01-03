@@ -97,11 +97,13 @@ class None<T> extends OptionT<T> {
         return ifEmpty()
     }
 
+    // Has to be implemened. static implementation is not enough
+    
     map<A>(f: (t: T) => A): OptionT<A> {
-        return None.prototype.map(f)
+        return None.prototype
     }
     flatMap<A>(f: (t: T) => OptionT<A>): OptionT<A> {
-        return None.prototype.flatMap(f)
+        return None.prototype
     }
     fold<A>(ifEmpty: () => A, ifSome: (t:T) => A): A {
         return ifEmpty()
