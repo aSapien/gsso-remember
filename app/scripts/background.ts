@@ -6,7 +6,7 @@ interface WebExtensionBrowserApi {
   runtime: {
     sendMessage<M, U>(m: M): Promise<U>
     onMessage: {
-      addListener(f: (a: any) => any): void //todo: remove Anys
+      addListener(f: (a: MessagePayload) => void): void
     }
   }
   storage: {
