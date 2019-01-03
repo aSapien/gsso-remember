@@ -33,12 +33,16 @@ const suggestAccountsToRemember = (destination) => {
     accountNodes
         .map(el => ({element: el,  email: el.getAttribute('data-email')}))
         .map(({element, email}) => {
+            const buttonContainer = document.createElement('div'); 
             const rememberButton = document.createElement('button');
-            rememberButton.innerText = `Login and remember as ${email}`;
+            rememberButton.innerText = `+ REMEMBER`;
             rememberButton.addEventListener('click', ev => saveLoginPreferenceFor(destination, email));
 
             console.log(`Attaching button [ ${rememberButton} ]`);
-            element.appendChild(rememberButton);
+            buttonContainer.setAttribute('class', 'google-remember-account-button');
+            buttonContainer.appendChild(rememberButton);
+
+            element.appendChild(buttonContainer);
         });
 }
 

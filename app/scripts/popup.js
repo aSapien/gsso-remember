@@ -3,7 +3,7 @@ console.log(`Loading Popup`);
 const getSavedPreferences = () => 
   browser.runtime.sendMessage({ action: 'list-account' });
 
-const removePreference = (destination) => 
+const removePreference = (destination) =>
   browser.runtime.sendMessage({ action: 'delete-account', destination });
 
 const renderSavedPreferences = () => {
@@ -17,9 +17,9 @@ const renderSavedPreferences = () => {
 
             removeButton.addEventListener('click', (ev) => 
                 removePreference(p.destination)
-                    .then(result => result.success 
-                        ? clearRender() 
-                        : console.error(`Could not remove preference. Error [ ${result.error} ] `))
+                    .then(result => result.success
+                        ? clearRender()
+                        : console.error(`Could not remove preference. Error [ ${JSON.stringify(result)} ] `))
             );
 
             return htmlUtils.create('tr', '', [

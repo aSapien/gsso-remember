@@ -31,7 +31,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*/*"
+        "https://accounts.google.com/signin/oauth*"
       ],
       "css": [
         "styles/contentscript.css"
